@@ -36,6 +36,7 @@ h3{
 }
 h4{
     font-font-weight: bold;
+    font-size: 2rem;
 }
 span{
     font-font-weight: bold;
