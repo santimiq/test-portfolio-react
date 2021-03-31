@@ -13,9 +13,14 @@ import {
   fade,
   photoAnim,
   linneAnim,
+  scrollReveal,
+  swoopAdoop,
 } from "../animation";
 
+import { useScroll } from "../components/useScroll";
+
 const OurWork = () => {
+  const [element, controls] = useScroll();
   return (
     <StyledWork
       variants={pageAnimation}
@@ -39,7 +44,12 @@ const OurWork = () => {
           </Hide>
         </Link>
       </StyledMovie>
-      <StyledMovie>
+      <StyledMovie
+        ref={element}
+        variants={swoopAdoop}
+        animate={controls}
+        initial="hidden"
+      >
         <motion.h2 variants={fade}>The Racer</motion.h2>
         <motion.div variants={linneAnim} className="line"></motion.div>
         <Link to="/work/the-racer">
@@ -71,7 +81,7 @@ const StyledWork = styled(motion.div)`
   }
 `;
 
-const StyledMovie = styled.div`
+const StyledMovie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
