@@ -1,33 +1,46 @@
-import React from 'react';
+import React from "react";
 //Images
-import home1 from '../img/home1.png'
+import home1 from "../img/home1.png";
 // Import Styled Component from styles.js
-import {StyledAbout, StyledDescription, StyledHide, StyledImage } from "../styles"
+import {
+  StyledAbout,
+  StyledDescription,
+  StyledHide,
+  StyledImage,
+} from "../styles";
+//Animate
+import { motion } from "framer-motion";
+import { titleAnim, fade, photoAnim } from "../animation";
+import Wave from "./Wave";
 
-const AboutSection = () =>{
-    return (
-        <StyledAbout>
-            <StyledDescription>
-                <div className="title">
-                    <StyledHide>
-                        <h2>We work to make</h2>
-                    </StyledHide>
-                    <StyledHide>
-                        <h2>your <span>dreams</span></h2>
-                    </StyledHide>
-                    <StyledHide>
-                        <h2>true.</h2>
-                    </StyledHide>
-                </div>
-                <p>Contact us for any pgotography o videos ideas.</p>
-                <button>Contact us</button>
-            </StyledDescription>
-            <StyledImage>
-                <img src={home1} alt="Guy with a camera"/>
-            </StyledImage>
-        </StyledAbout>
-    )
-}
-
+const AboutSection = () => {
+  return (
+    <StyledAbout>
+      <StyledDescription>
+        <div className="title">
+          <StyledHide>
+            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
+          </StyledHide>
+          <StyledHide>
+            <motion.h2 variants={titleAnim}>
+              your <span>dreams</span>
+            </motion.h2>
+          </StyledHide>
+          <StyledHide>
+            <motion.h2 variants={titleAnim}>true.</motion.h2>
+          </StyledHide>
+        </div>
+        <motion.p variants={fade}>
+          Contact us for any pgotography o videos ideas.
+        </motion.p>
+        <motion.button variants={fade}>Contact us</motion.button>
+      </StyledDescription>
+      <StyledImage>
+        <motion.img variants={photoAnim} src={home1} alt="Guy with a camera" />
+      </StyledImage>
+      <Wave />
+    </StyledAbout>
+  );
+};
 
 export default AboutSection;
