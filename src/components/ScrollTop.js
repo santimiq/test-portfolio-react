@@ -9,6 +9,7 @@ const ScrollTop = () => {
       left: 0,
     });
   }, [pathname]); //RUN THIS EVERYTIME PATH CHANGES
+  return null;
 };
 
 export default ScrollTop;
